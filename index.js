@@ -11,7 +11,7 @@ const poolData = {
     ClientId : process.env.COGNITO_CLIENT_ID
 }
 
-app.get('/get/:username/:password', (req, res) => {
+app.get('/getIdenityId/:username/:password', (req, res) => {
     const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData)
 
     let username = req.params.username
@@ -27,8 +27,6 @@ app.get('/get/:username/:password', (req, res) => {
         Pool: userPool
     })
 
-    // let accessKeyId = process.env.AWS_ACCESS_KEY_ID
-    // let secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
     let identityPoolId = process.env.IDENTITY_POOL_ID
     
     cognitoUser.authenticateUser(authenticationDetails, {
