@@ -54,7 +54,7 @@ app.get('/getIdenityId/:username/:password', (req, res) => {
                 } else {
                     res.json({
                         identityId: AWS.config.credentials.identityId,
-                        message: err.message,
+                        message: null,
                         success: true
                     })
                 }
