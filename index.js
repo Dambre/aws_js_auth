@@ -34,7 +34,7 @@ app.get('/getIdenityId/:username/:password', (req, res) => {
         onSuccess: (result) => {
             var accessToken = result.getAccessToken().getJwtToken()
             var idToken = result.idToken.jwtToken
-            var loginProvider = process.env.COGNITO_USER_POOL_ARN
+            var loginProvider = process.env.LOGIN_PROVIDER
 
             AWS.config.region = process.env.AWS_REGION
 
